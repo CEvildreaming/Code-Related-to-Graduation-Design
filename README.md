@@ -6,7 +6,7 @@ Model里面的代码是五种基本的模型。其中EfiicientNet和Swin Transfo
 
 Train脚本是进行模型对比的时候训练的基本脚本。基本参数可以调。 
 
-F1Pro脚本是模型评估脚本，评估的脚本选择数据集需要选择到整个数据集的测试集，也就是test，不能是训练集和验证集，否则出现谬误。计算如F1分数，Precision和recall的，同时支持宏和加权两种，取决于数据集的不同选择合适的，本实验基于Retinal OCT-C8数据集，由于各分类数目都是3000张图片，数目相同，所以加权分数等于宏分数。本论文数据集在https://www.kaggle.com/datasets/obulisainaren/retinal-oct-c8下载。
+F1Pro脚本是模型评估脚本，评估的脚本选择数据集需要选择到整个数据集的测试集，也就是test，不能是训练集和验证集，否则出现谬误。脚本计算如F1分数，Precision和recall的，同时支持宏和加权两种模式的分数，根据数据集的不同加权分数和宏分数会出现不同，本实验基于Retinal OCT-C8数据集，由于各分类数目都是3000张图片，数目相同，所以加权分数等于宏分数。本论文数据集在https://www.kaggle.com/datasets/obulisainaren/retinal-oct-c8下载。
 
 其他如Adam.py、AdamW.py、AMP.py、CosineAnnealingLR.py、RMSProp.py、smooth.py、smooth2.py、StepLR.py是消融试验的变量训练器。是基于Train.py修改得来（Train.py是论文中的A1变量）。可以看论文控制变量表格。
 
@@ -14,7 +14,7 @@ Finally.py是最终模型训练的脚本，经过消融试验最后的训练器�
 
 system.py是医学图像分类系统脚本。分类脚本不要对拿来训练的训练集和测试集的图片分类。
 
-由于实验环境是租的AutoDL云GPU，整体代码的运行相关逻辑需要修改指定地址。比如Train训练Resnet的时候，具体模型地址和数据集地址需要依据环境决定，另外需要注意的是，F1pro.py是评估脚本。指定数据集需要数据集的test也就是测试集。否则计算不准确。
+由于实验环境是租的AutoDL云GPU，整体代码的运行相关逻辑需要修改指定地址。比如Train训练Resnet的时候，具体模型地址和数据集地址需要依据环境决定
 
 图像分类系统代码是system.py,可以直接运行，注意不能在虚拟环境，最好在本地环境，不然运行可能报错。
 
